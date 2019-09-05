@@ -1,58 +1,66 @@
 //Words//
 
 let wordsArray = ["Monica", "Chandler", "Joey", "Phoebe", "Rachel", "Ross" ];
-let currentWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+let currentWord = wordsArray[Math.floor(Math.random() * (wordsArray.length))];
+
+
 
 // Game Variables//
 
-let guessesRemaining =  document.getElementById("guessesRemaining");
-let alreadyGuessed = document.getElementById("alreadyGuessed");
-let wins = document.getElementById("wins");
-let losses = document.getElementById("losses");
-let letters ="abcdefghijklmnopqrstuvwxyz";
+let guessesRemaining = 0;
+let alreadyGuessed =[];
+let alreadyGuessedDisplay = document.getElementById("alreadyGuessed");
+let wins = 0;
+let losses = 0;
 let maxGuesses = 10;
-
-let currentGuess =[]
-let gameStarted = false;
-
+let currentWordIndex;
+let answerArray = [];
 
 
 
-//Key Functions//
+let start = function (){
 
-let guesses = function (){
-    answerArray = [];
+    guessesRemaining = maxGuesses;
+    currentWordIndex = Math.floor(Math.random() * (wordsArray.length));
+    
+
     for (var i = 0; i < currentWord.length; i++) {
         answerArray[i] = " _ ";}
     
         document.getElementById("currWord").innerHTML= answerArray.join("");
+        console.log(currentWord);
+}
+
+start();
+
+let guesses = function (letter) {
+
+    maxGuesses --;
+
+    if(currentWord.indexOf(letter)=== -1) {
+
+        alreadyGuessed.push(letter);
+        alreadyGuessedDisplay.innerHTML = alreadyGuessed.join(",")
+
     }
-    
-    guesses();
-    console.log(currentWord);
 
-document.onkeyup = function(event) {
+    else {
+        for (var j = 0; j < currentWord.length; j++) {
 
-    let userGuess = event.key;
-
-    for (var j = 0; j < currentWord.length; j ++) {
-
-        if (currentWord[j] === userGuess){
-            answerArray[j] = userGuess;
+            if(currentWord[j] === letter) {
+                answerArray[j] = letter;
+            }
         }
     }
-
-
-}
-  
-let restart = function (){
-
-    guessesRemaining = maxGuesses;
-    gameStarted = false;
 }
 
+document.getElementById("currWord").innerHTML= answerArray.join("");
 
+document.onkeyup = function (event) {
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+    guesses(letterGuessed);
     
+  };
 
 //Get word//
 
@@ -60,7 +68,7 @@ let restart = function (){
 
 //Guesses//
 
-let guess 
+
 
 
 
