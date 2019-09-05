@@ -30,13 +30,7 @@ let answerArray = [];
 
 let start = function (){
 
-    function random (wordsArray) {
-        return wordsArray[Math.floor(Math.random() * (wordsArray.length))];}
-        
-        
-        random(wordsArray);
-    
-
+   currentWord = wordsArray[Math.floor(Math.random() * (wordsArray.length))]
     alreadyGuessedDisplay.innerHTML = ( " " )
     alreadyGuessed = [ ];
     answerArray = [ ];
