@@ -1,7 +1,7 @@
 //Words//
 
 let wordsArray = ["Monica", "Chandler", "Joey", "Phoebe", "Rachel", "Ross" ];
-let currentWord = document.getElementById("currWord").innerHTML = wordsArray[Math.floor(Math.random() * wordsArray.length)];
+let currentWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
 
 // Game Variables//
 
@@ -10,25 +10,40 @@ let alreadyGuessed = document.getElementById("alreadyGuessed");
 let wins = document.getElementById("wins");
 let losses = document.getElementById("losses");
 let letters ="abcdefghijklmnopqrstuvwxyz";
-let maxGuesses =[];
+let maxGuesses = 10;
 
-let currentGuess
+let currentGuess =[]
 let gameStarted = false;
 
 
 
 
-let answerArray =[];
-for(var i = 0; i < currentWord.length; i++) {
-
-    answerArray[i]= "_"; }
-let remainingLetters = currentWord.length; 
-
-
 //Key Functions//
+
+let guesses = function (){
+    answerArray = [];
+    for (var i = 0; i < currentWord.length; i++) {
+        answerArray[i] = " _ ";}
+    
+        document.getElementById("currWord").innerHTML= answerArray.join("");
+    }
+    
+    guesses();
+    console.log(currentWord);
+
 document.onkeyup = function(event) {
 
-    let userGuess = event.key;}
+    let userGuess = event.key;
+
+    for (var j = 0; j < currentWord.length; j ++) {
+
+        if (currentWord[j] === userGuess){
+            answerArray[j] = userGuess;
+        }
+    }
+
+
+}
   
 let restart = function (){
 
