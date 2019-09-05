@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess Game</title>
 
-    <link rel = "stylesheet" href ="assets/css/reset.css">
-    <link rel = "stylesheet" href ="assets/css/style.css">
-</head>
-<body>
-    <div>Press Any Key to Start!</div>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <div id="currWord">
+</head>
+
+<body>
+
+    <div id="pic"> 
+            <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3d17R5YdcwAPDzLBBPrx4BqRJfjTJP0jdn8ZnejmiBEnfIeDy">
+            <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTpu66ouoocraqwphM5xlQfQfh4AqIn8Df2eznzlV37OiYpmYnd">
+            <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQCTFFAOL6MbZ-EVPpIdh3QJ0OcdOTVh-AgthrSpey2IRkk7nhe">
+
+    </div>
+    <div class="container">
+            <div id= "title">FRIENDS WORD GUESS!</div>
+            <br>
+            <br>
+        <div class="titles">Press Any Key to Start!</div>
+<br>
+        <div id="currWord">
+
+        </div>
+        <br>
+        <div class="titles">Guesses Remaining:</div>
+        <br>
+        <div id="guessesRemaining">
+            
+
+        </div>
+        <br>
+
+        <div class="titles">Letters Already Guessed</div>
+        <br>
+        <div id="alreadyGuessed"></div>
+        <br>
+        <div class="titles"> Wins:</div>
+        <br>
+
+        <div id="wins">Wins</div>
+        <br>
+        <div class="titles"> Losses:</div>
+        <br>
+        <div id="losses">Losses</div>
+
+    </div class="container">
+
+    <div id= "footer">
+
+    
 
     </div>
 
-    <div id="guessesRemaining"></div>
-
-
-Letters Already Guessed
-    <div id="alreadyGuessed"></div>
-    <br>
-
-    <div id="wins">Wins</div>
-    <div id="losses">Losses</div>
-
-
     
-    <script src = "assets/javascript/games.js">
+
+
+
+    <script src="assets/javascript/games.js">
     </script>
 </body>
+
 </html>

@@ -1,8 +1,14 @@
 //Words//
 
 let wordsArray = ["monica", "chandler", "joey", "phoebe", "rachel", "ross" ];
-let currentWord = wordsArray[Math.floor(Math.random() * (wordsArray.length ))];
+function random (wordsArray) {
+    return wordsArray[Math.floor(Math.random() * (wordsArray.length))];}
+    
+    
+   random(wordsArray);
 
+
+let currentWord = random(wordsArray);
 
 
 // Game Variables//
@@ -19,10 +25,18 @@ let answerArray = [];
 
 
 
-   
+
 
 
 let start = function (){
+
+    function random (wordsArray) {
+        return wordsArray[Math.floor(Math.random() * (wordsArray.length))];}
+        
+        
+        random(wordsArray);
+    
+
     alreadyGuessedDisplay.innerHTML = ( " " )
     alreadyGuessed = [ ];
     answerArray = [ ];
@@ -96,17 +110,23 @@ document.onkeyup = function (event) {
  let checkWin = function () {
 
 if ( answerArray.indexOf( "_" ) === -1) {
-      document.getElementById("wins").innerHTML ++;
-        alert("Great Job!");
+      
+        
+        
+        document.getElementById("wins").innerHTML ++;
+        
         start();
         
   } 
   
   else if (document.getElementById("guessesRemaining").innerHTML === "0") {
      document.getElementById("losses").innerHTML ++;
-   start();
+     
+     start(); }
+
+
    
-  } }
+  } 
 
   start();
     
