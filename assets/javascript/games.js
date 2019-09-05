@@ -1,26 +1,27 @@
 //Words//
 
-let wordsArray = ["Monica", "Chandler", "Joey", "Phoebe", "Rachel", "Ross" ];
+let wordsArray = ["monica", "chandler", "joey", "phoebe", "rachel", "ross" ];
 let currentWord = wordsArray[Math.floor(Math.random() * (wordsArray.length))];
 
 
 
 // Game Variables//
 
-let guessesRemaining = 0;
+let guessesRemaining = 10
 let alreadyGuessed =[];
 let alreadyGuessedDisplay = document.getElementById("alreadyGuessed");
 let wins = 0;
 let losses = 0;
-let maxGuesses = 10;
+let maxGuesses = document.getElementById("guessesRemaining");
 let currentWordIndex;
 let answerArray = [];
 
 
 
+
 let start = function (){
 
-    guessesRemaining = maxGuesses;
+    
     currentWordIndex = Math.floor(Math.random() * (wordsArray.length));
     
 
@@ -35,7 +36,7 @@ start();
 
 let guesses = function (letter) {
 
-    maxGuesses --;
+    maxGuesses--;
 
     if(currentWord.indexOf(letter)=== -1) {
 
@@ -49,14 +50,16 @@ let guesses = function (letter) {
 
             if(currentWord[j] === letter) {
                 answerArray[j] = letter;
+                document.getElementById("currWord").innerHTML= answerArray.join("");
             }
         }
     }
 }
 
-document.getElementById("currWord").innerHTML= answerArray.join("");
+
 
 document.onkeyup = function (event) {
+    guessesRemaining--;
     var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
     guesses(letterGuessed);
     
